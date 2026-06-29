@@ -1,0 +1,23 @@
+.container {
+    padding: 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+}
+
+.grid {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.elevation-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}

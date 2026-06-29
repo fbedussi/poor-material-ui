@@ -1,0 +1,46 @@
+import { useState } from "react";
+import styles from "./TextField.module.css";
+
+const TextField = ({
+  id,
+  name,
+  label,
+  defaultValue,
+  placeholder,
+  error,
+  type,
+}: {
+  id: string;
+  name: string;
+  label?: string;
+  defaultValue?: string;
+  placeholder?: string;
+  error?: string;
+  type?: "password";
+}) => {
+  const [dirty, setDirty] = useState(!!defaultValue);
+
+  return (
+    <div
+      className={[
+        styles.container,
+        !!error ? styles["with-error"] : undefined,
+      ].join(" ")}
+    >
+      <input
+        id={id}
+        type={type ?? "text"}
+        placeholder={placeholder}
+        name={name}
+        className={dirty ? styles.dirty : undefined}
+        defaultValue={defaultValue}
+        aria-invalid={error ? true : undefined}
+        onChange={(e) => setDirty(!!e.currentTarget.value)}
+      />
+      {!!label && <label htmlFor={id}>{label}</label>}
+      <div className={styles.error}>{error || <>&nbsp;</>}</div>
+    </div>
+  );
+};
+
+export default TextField;
