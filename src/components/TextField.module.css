@@ -17,9 +17,14 @@
 
     input {
         margin-bottom: 0;
+        border: solid var(--color-border) var(--border-size);
+        padding: var(--form-el-y-padding) var(--form-el-x-padding);
+        border-radius: var(--border-radius);
+        width: 100%;
 
         .with-error & {
-            border-color: var(--color-error);
+            --color-border: var(--color-error);
+            --color-outline: var(--color-error);
         }
 
         /* floated state: the label is smaller and on the border */

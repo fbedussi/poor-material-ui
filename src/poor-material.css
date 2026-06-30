@@ -10,6 +10,7 @@
     --color-primary-inverse: white;
     --color-grey: grey;
     --color-border: lightgrey;
+    --color-outline: var(--color-background-primary);
     --form-el-y-padding: 1rem;
     --form-el-x-padding: 1rem;
     --border-radius: 5px;
@@ -75,13 +76,10 @@ a.no-style {
     display: inline-block;
 }
 
-input[type="text"],
-input[type="password"] {
-    border: solid var(--color-border) var(--border-size);
-    padding: var(--form-el-y-padding) var(--form-el-x-padding);
-    border-radius: var(--border-radius);
-    outline-color: var(--color-background-primary);
-    width: 100%;
+*:focus-visible {
+    outline-color: var(--color-outline);
+    /*this is needed by firefox */
+    outline-style: solid;
 }
 
 input[type="checkbox"] {
@@ -181,8 +179,10 @@ fieldset {
             height: 1rem;
             border-radius: 2rem;
             display: flex;
-            align-items: center;
+            align-items: end;
             justify-content: center;
+            font-size: 1rem;
+            line-height: 1;
         }
 
         &:checked {
